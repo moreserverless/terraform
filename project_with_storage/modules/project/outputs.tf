@@ -9,6 +9,10 @@ output "prj_id" {
     value = google_project.my_project-in-a-folder.project_id
 }
 
+output "ran_id" {
+    value = random_id.default.hex
+}
+
 
 # output "prj_resource" {
 #     value = google_project.my_project-in-a-folder
