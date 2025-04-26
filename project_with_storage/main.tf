@@ -3,7 +3,7 @@ provider "google" {
 
 }
 module "moreserverless_project" {
-  source          = "./modules"
+  source          = "./modules/project/"
   org_id          = var.org_id
   prj_name        = var.project_name
   folder_name     = var.folder_name
