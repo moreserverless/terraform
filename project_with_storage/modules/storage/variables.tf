@@ -11,7 +11,6 @@ variable "project_region" {
   type = string
 }
 
-
 variable "prj_name" {
   type = string
 }
@@ -29,6 +28,9 @@ variable "bill_acc" {
   type = string
 }
 
+variable "ran_id" {
+  type = string
+}
 
 # variable "prj_resource" {
 #   description = "The actual project RESOURCE.  Use this for depends_on"

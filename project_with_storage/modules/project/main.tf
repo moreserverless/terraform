@@ -28,35 +28,35 @@ resource "google_project_service" "my_projec_storage_service" {
   disable_on_destroy = true
 }
 
-resource "google_storage_bucket" "terraform-state" {
-  name     = "${random_id.default.hex}-terraform-remote-backend"
-  location = var.project_region
-  project = google_project.my_project-in-a-folder.project_id
-  force_destroy               = false
-  public_access_prevention    = "enforced"
-  uniform_bucket_level_access = true
+# resource "google_storage_bucket" "terraform-state" {
+#   name     = "${random_id.default.hex}-terraform-remote-backend"
+#   location = var.project_region
+#   project = google_project.my_project-in-a-folder.project_id
+#   force_destroy               = false
+#   public_access_prevention    = "enforced"
+#   uniform_bucket_level_access = true
 
-  versioning {
-    enabled = true
-  }
+#   versioning {
+#     enabled = true
+#   }
 
-  depends_on = [ google_project.my_project-in-a-folder ]
-}
+#   depends_on = [ google_project.my_project-in-a-folder ]
+# }
 
-resource "google_storage_bucket" "project-bucket" {
-  name = "prj-bucket-${random_id.default.hex}"
-  location = var.project_region
-  project = google_project.my_project-in-a-folder.project_id
-  force_destroy               = false
-  public_access_prevention    = "enforced"
-  uniform_bucket_level_access = true
+# resource "google_storage_bucket" "project-bucket" {
+#   name = "prj-bucket-${random_id.default.hex}"
+#   location = var.project_region
+#   project = google_project.my_project-in-a-folder.project_id
+#   force_destroy               = false
+#   public_access_prevention    = "enforced"
+#   uniform_bucket_level_access = true
 
-  versioning {
-    enabled = true
-  }
+#   versioning {
+#     enabled = true
+#   }
 
-  depends_on = [ google_project.my_project-in-a-folder ]
-}
+#   depends_on = [ google_project.my_project-in-a-folder ]
+# }
 
 /*
 resource "local_file" "default" {
