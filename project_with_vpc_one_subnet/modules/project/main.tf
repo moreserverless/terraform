@@ -20,10 +20,29 @@ resource "google_project" "my_project-in-a-folder" {
 
 }
 
+# this is needed for VPC
 resource "google_project_service" "prj_services" {
   project = google_project.my_project-in-a-folder.project_id
   service = "compute.googleapis.com"
   depends_on = [ google_project.my_project-in-a-folder ]
 }
 
+# The next 3 are needed for cloud run functions
+# Artifact registry API is also need but it is set in ./modules/artifact_reg
+resource "google_project_service" "cloud_build_service" {
+  project = google_project.my_project-in-a-folder.project_id
+  service = "cloudbuild.googleapis.com"
+  depends_on = [ google_project.my_project-in-a-folder ]
+}
 
+resource "google_project_service" "cloud_run_service" {
+  project = google_project.my_project-in-a-folder.project_id
+  service = "run.googleapis.com"
+  depends_on = [ google_project.my_project-in-a-folder ]
+}
+
+resource "google_project_service" "logging_service" {
+  project = google_project.my_project-in-a-folder.project_id
+  service = "logging.googleapis.com"
+  depends_on = [ google_project.my_project-in-a-folder ]
+}
