@@ -26,3 +26,4 @@ resource "google_project_service" "prj_services" {
   depends_on = [ google_project.my_project-in-a-folder ]
 }
 
+

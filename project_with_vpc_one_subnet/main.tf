@@ -22,3 +22,10 @@ module "moreserverless_vpc" {
   prj_id            = module.moreserverless_project.prj_id
   depends_on        = [ module.moreserverless_project ]
 }
+
+module "moreserverless_artifact_reg" {
+  source      = "./modules/artifact_reg"
+  location    = var.project_region
+  prj_id      = module.moreserverless_project.prj_id
+  depends_on  = [ module.moreserverless_project ]
+}
