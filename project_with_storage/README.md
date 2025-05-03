@@ -25,5 +25,7 @@ Requires the following environment variables to be set:
 Run the following commands:
 
 `terraform plan -var-file="project.tfvars`
+
 `terraform apply -var-file="project.tfvars`
+
 `terraform destroy -var-file="project.tfvars`
