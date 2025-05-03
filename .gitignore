@@ -36,3 +36,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 project_with_storage/.terraform.lock.hcl
+
+.terraform/
