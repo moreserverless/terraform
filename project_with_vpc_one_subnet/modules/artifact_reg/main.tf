@@ -14,4 +14,5 @@ resource "google_artifact_registry_repository" "repo" {
 resource "google_project_service" "artfact_reg_services" {
   project = var.prj_id
   service = "artifactregistry.googleapis.com"
+  disable_dependent_services=true
 }
